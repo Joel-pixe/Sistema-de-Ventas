@@ -1,0 +1,35 @@
+======== PARTE 1: NEGOCIOS + BD ========
+[PASS] T1 KPIs | VentasTotales=59.00 (esperado 59.00), Transacciones=1 (esperado 1), Ticket=59.00 (esperado 59.00)
+[PASS] T2 Tendencia | puntos=30 (esperado 30: serie diaria completa para la ventana de 30 días)
+[FAIL] T2b Tendencia granularidad SEMANA | puntos=30 (esperado <=8 semanales): sp_dashboard_tendencia solo acepta DIA/MES y hace fallback a DIA
+[PASS] T3 TopProductos | n=1, primero=Pollo Victorina/50.00 (esperado Pollo Victorina/50.00)
+[PASS] T4 DistribucionCategorias | categorias=1, suma porcentajes=100.00
+[PASS] T5 VentasPeriodo DIA | puntos=30 (esperado 30), metrica=MONTO, granularidad=DIA
+[PASS] T5b VentasPeriodo SEMANA/CANTIDAD | puntos=6 (esperado 5-6 semanales), Valor==Cantidad: True
+[PASS] T6 StockBajo | articulos=1 (esperado 1: Pollo Victorina/Critico con umbral 5)
+[PASS] T7 FiltrosDisponibles | vendedores=3, categorias=6
+[PASS] T7b Filtro vendedor por id | vendedores=1, id=6
+[PASS] T8 Validación filtros | null lanza ArgumentNullException=True; fechas invertidas+granularidad/métrica inválidas -> DIA/MONTO=True
+
+======== PARTE 2: UI / WIDGETS ========
+[PASS] T9 FrmEstadisticas ctor | Se instanció sin excepción
+[PASS] T10 TabControl 6 pestañas | nombres=KPIs, Tendencia, Top Productos, Distribución, Ventas Período, Stock Bajo
+[PASS] T11 Barra de filtros | 10 controles presentes
+[PASS] T12 Opciones de combos | preset=5/5, granularidad=4/4, metrica=2/2
+[PASS] T13 ProgressBars por pestaña | 6 marquee, visibles=false, dentro de cada TabPage
+[PASS] T14 Widgets por pestaña | 6 widgets presentes
+[PASS] T15 Manejadores Click | BtnActualizar handlers=1 (>=1), BtnExportar handlers=1 (>=1)
+[PASS] T16a UcTrendChart | Construct + Cargar sin excepción
+[PASS] T16b UcVentasPeriodo | Construct + Cargar sin excepción
+[PASS] T16c UcCategoryDonut | Construct + Cargar sin excepción
+[PASS] T16d UcTopProducts | Construct + Cargar sin excepción
+[PASS] T16e UcKpiCardsEstadisticas | Construct + Cargar sin excepción
+[PASS] T17 Coloreado alertas (Estado='Critico'/'Bajo') | Critico=FFFFEBEB (esperado rojo claro FFEBEBEB), Bajo=FFFFF8DC (esperado amarillo claro) -> fila crítica pintada como CRÍTICA
+[FAIL] T18 ExportToPng | PNG válido=True, dimensiones=800x600 -> PLACEHOLDER 800x600: no renderiza el gráfico (bug RF-EXP-01)
+[PASS] T19 Permisos rol=Administrador | BtnEstadisticas.Visible propio=True (esperado True), indiceZOrder=3 (diseñado=3), icono='estadisticas.png' presente=True
+[PASS] T19 Permisos rol=Vendedor | BtnEstadisticas.Visible propio=False (esperado False), indiceZOrder=3 (diseñado=3), icono='estadisticas.png' presente=True
+[PASS] T19 Permisos rol=Almacen | BtnEstadisticas.Visible propio=False (esperado False), indiceZOrder=3 (diseñado=3), icono='estadisticas.png' presente=True
+[PASS] T20 Posición botón Estadísticas | indice=3 (esperado 3 => entre USUARIOS y VENTAS). Orden visual: CATEGORIAS > ARTICULOS > SALIR > INGRESOS > VENTAS > ESTADÍSTICAS* > USUARIOS > CLIENTES > PROVEEDORES
+[PASS] T21 Navegación a FrmEstadisticas | PnlContenedor contiene FrmEstadisticas=True (hijos=1)
+
+RESUMEN: PASS=28  FAIL=2

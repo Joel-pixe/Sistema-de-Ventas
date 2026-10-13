@@ -1,0 +1,55 @@
+﻿=== 1. NOMBRES EXACTOS DE PARÁMETROS DEL SP DE STOCK ===
+Param|Largo
+-----|-----
+@StockMinimoUmbral|18
+@IdCategoria|12
+
+(2 rows affected)
+=== 2. LLAMADA CON EL NOMBRE QUE USA DEstadisticas.cs (@stock_minimo_umbral) ===
+HResult 0x1FD1, Level 16, State 1
+@stock_minimo_umbral is not a parameter for procedure sp_estadisticas_stock_alertas.
+=== 3. LLAMADA CON EL NOMBRE REAL (@StockMinimoUmbral) ===
+IdArticulo|Codigo|Nombre|Categoria|StockActual|StockMinimo|Estado
+----------|------|------|---------|-----------|-----------|------
+23|78945|Pollo Victorina|Pollo Seco|0|5|Critico
+=== 4. ESTADOS DEVUELTOS (compara con UcAlertasStock: CRITICO/Critico/BAJO/Bajo) ===
+
+(6 rows affected)
+Estado|Filas
+------|-----
+Bajo|5
+Critico|1
+
+(2 rows affected)
+=== 5. ¿LOS SPs TIENEN DEFAULTS? (ejecutar SIN argumentos) ===
+Id|NombreCompleto
+--|--------------
+7|Eduardo
+6|Joel
+8|Perejildo
+Id|Nombre
+--|------
+14|Bebidas
+15|Cuidado Personal
+13|Lácteos
+18|Pollo Seco
+16|Ropa
+17|Tecnología
+=== 6. ¿@FechaInicio mayúsculas/minúsculas importa? (ya probado: no) ===
+NombreReal
+----------
+@FechaInicio
+@FechaFin
+@IdUsuario
+@IdCategoria
+
+(4 rows affected)
+=== 7. ÍNDICES QUE DEBERÍAN ESTAR EN VENTA (citados como preexistentes) ===
+name
+----
+IX_venta_fecha_estado
+IX_venta_usuario_fecha
+PK_venta
+
+(3 rows affected)
+=== 8. FIN ===

@@ -1,0 +1,29 @@
+# ============================================================
+#  SISTEMA SEMANA 11 — .gitignore
+#  Backups, binarios y artefactos de build NO se versionan.
+# ============================================================
+
+# --- Backups / paquetes pesados (los dos .zip superan el límite de 100 MB de GitHub) ---
+*.zip
+*.rar
+*.7z
+*.bak
+
+# --- NuGet (restaurable con `nuget restore` o `dotnet restore`) ---
+packages/
+**/packages/
+*.nupkg
+
+# --- .NET / Visual Studio ---
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.cache
+*.dll.config.bak
+
+# --- Sistema / editor ---
+Thumbs.db
+desktop.ini
+*.swp

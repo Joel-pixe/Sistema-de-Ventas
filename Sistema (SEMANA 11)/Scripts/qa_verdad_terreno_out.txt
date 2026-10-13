@@ -1,0 +1,62 @@
+--- 1) ventas en la ventana de prueba (hoy-29..hoy) ---
+idventa|fecha|total|estado
+-------|-----|-----|------
+14|2026-10-10 19:56:48.197|59.00|1
+--- 2) verdad cruda KPI (estado<>Anulado) ---
+VentasTotales|NumTransacciones
+-------------|----------------
+59.00|1
+--- 3) sp_dashboard_kpis misma ventana ---
+VentasTotales|IngresosTotales|TicketPromedio|NumTransacciones|VariacionVsPeriodoAnterior|MargenBruto
+-------------|---------------|--------------|----------------|--------------------------|-----------
+59.00|243.00|59.00|1|.00|.00
+--- 4) detalle de ventas en la ventana ---
+idventa|articulo|cantidad|precio|descuento|neto
+-------|--------|--------|------|---------|----
+14|Pollo Victorina|1|50.00|.00|50.00
+--- 5) sp_dashboard_top_productos misma ventana ---
+IdArticulo|Codigo|Nombre|Categoria|TotalCantidad|TotalMonto
+----------|------|------|---------|-------------|----------
+23|78945|Pollo Victorina|Pollo Seco|1|50.00
+--- 6) sp_dashboard_tendencia con Granularidad=SEMANA (etiquetas que devuelve) ---
+Fecha|PeriodoLabel|Ventas|Ingresos
+-----|------------|------|--------
+2026-09-13 00:00:00.000|13/Sep|.00|.00
+2026-09-14 00:00:00.000|14/Sep|.00|.00
+2026-09-15 00:00:00.000|15/Sep|.00|.00
+2026-09-16 00:00:00.000|16/Sep|.00|.00
+2026-09-17 00:00:00.000|17/Sep|.00|.00
+2026-09-18 00:00:00.000|18/Sep|.00|.00
+2026-09-19 00:00:00.000|19/Sep|.00|.00
+2026-09-20 00:00:00.000|20/Sep|.00|.00
+2026-09-21 00:00:00.000|21/Sep|.00|.00
+2026-09-22 00:00:00.000|22/Sep|.00|.00
+2026-09-23 00:00:00.000|23/Sep|.00|.00
+2026-09-24 00:00:00.000|24/Sep|.00|.00
+2026-09-25 00:00:00.000|25/Sep|.00|.00
+2026-09-26 00:00:00.000|26/Sep|.00|.00
+2026-09-27 00:00:00.000|27/Sep|.00|.00
+2026-09-28 00:00:00.000|28/Sep|.00|.00
+2026-09-29 00:00:00.000|29/Sep|.00|.00
+2026-09-30 00:00:00.000|30/Sep|.00|.00
+2026-10-01 00:00:00.000|01/Oct|.00|.00
+2026-10-02 00:00:00.000|02/Oct|.00|.00
+2026-10-03 00:00:00.000|03/Oct|.00|.00
+2026-10-04 00:00:00.000|04/Oct|.00|.00
+2026-10-05 00:00:00.000|05/Oct|.00|.00
+2026-10-06 00:00:00.000|06/Oct|.00|.00
+2026-10-07 00:00:00.000|07/Oct|.00|.00
+2026-10-08 00:00:00.000|08/Oct|.00|.00
+2026-10-09 00:00:00.000|09/Oct|.00|.00
+2026-10-10 00:00:00.000|10/Oct|59.00|243.00
+2026-10-11 00:00:00.000|11/Oct|.00|.00
+2026-10-12 00:00:00.000|12/Oct|.00|.00
+--- 7) stock_alertas con parametro correcto (funciona en SQL) ---
+IdArticulo|Codigo|Nombre|Categoria|StockActual|StockMinimo|Estado
+----------|------|------|---------|-----------|-----------|------
+23|78945|Pollo Victorina|Pollo Seco|0|5|Critico
+--- 8) estados distintos presentes en venta ---
+estado|n
+------|-
+1|2
+Anulado|1

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Sistema.Datos/Sistema.Datos.csproj" Id="f9b92351-38d0-4075-b79d-a19a2089fc3e" />
+  <Project Path="Sistema.Entidad/Sistema.Entidad.csproj" Id="10c4e3b0-c537-4b94-b09a-bf43c527ca4f" />
+  <Project Path="Sistema.Negocios/Sistema.Negocios.csproj" Id="e3d99b90-f4ef-48f4-8bc9-b5d146d93c53" />
+  <Project Path="WindowsFormsApp1/Sistema.Presentacion.csproj" Id="d25ba8d3-e9ea-4914-8f5f-a284ca96aa2a" />
+</Solution>
