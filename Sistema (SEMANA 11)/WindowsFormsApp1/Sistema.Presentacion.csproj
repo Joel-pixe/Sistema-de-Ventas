@@ -337,6 +337,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Screenshot_2026-07-17_192320-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-07-17_192320-removebg-preview-bn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.3.119.0\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.3.119.0\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />

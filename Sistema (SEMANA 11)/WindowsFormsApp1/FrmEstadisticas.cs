@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
             Panel pnlTop = new Panel
             {
                 Dock = DockStyle.Top,
-                Height = 110,
+                Height = 120,
                 BackColor = Color.White,
                 Padding = new Padding(10, 8, 10, 8)
             };
@@ -130,11 +130,25 @@ namespace WindowsFormsApp1
             tlp.Controls.Add(CrearCampo("MÉTRICA", CmbMetrica), 8, 0);
 
             // Panel Acciones
-            Panel pnlAcciones = new Panel { Dock = DockStyle.Fill, Padding = new Padding(4, 0, 0, 0) };
+            Panel pnlAcciones = new Panel { Dock = DockStyle.Fill };
+
+            TableLayoutPanel tlpAcciones = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 3,
+                Margin = Padding.Empty,
+                Padding = Padding.Empty
+            };
+            tlpAcciones.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpAcciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));  // ACTUALIZAR
+            tlpAcciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));  // EXPORTAR
+            tlpAcciones.RowStyles.Add(new RowStyle(SizeType.Percent, 100F)); // estado
+
             BtnActualizar = new Button
             {
-                Dock = DockStyle.Top,
-                Height = 34,
+                Dock = DockStyle.Fill,
+                Margin = new Padding(0, 2, 0, 2),
                 Text = "ACTUALIZAR",
                 BackColor = Color.DodgerBlue,
                 ForeColor = Color.White,
@@ -147,9 +161,8 @@ namespace WindowsFormsApp1
 
             BtnExportar = new Button
             {
-                Dock = DockStyle.Top,
-                Height = 34,
-                Margin = new Padding(0, 6, 0, 0),
+                Dock = DockStyle.Fill,
+                Margin = new Padding(0, 2, 0, 2),
                 Text = "EXPORTAR",
                 BackColor = Color.MediumSeaGreen,
                 ForeColor = Color.White,
@@ -162,19 +175,27 @@ namespace WindowsFormsApp1
 
             LblEstado = new Label
             {
-                Dock = DockStyle.Bottom,
+                Dock = DockStyle.Fill,
                 AutoSize = false,
-                Height = 22,
                 Text = "Listo",
                 Font = new Font("Century Gothic", 7.5F),
                 ForeColor = Color.Gray,
                 TextAlign = ContentAlignment.MiddleLeft
             };
 
-            pnlAcciones.Controls.Add(LblEstado);
-            pnlAcciones.Controls.Add(BtnExportar);
-            pnlAcciones.Controls.Add(BtnActualizar);
-            tlp.Controls.Add(CrearCampo("", pnlAcciones), 9, 0);
+            tlpAcciones.Controls.Add(BtnActualizar, 0, 0);
+            tlpAcciones.Controls.Add(BtnExportar, 0, 1);
+            tlpAcciones.Controls.Add(LblEstado, 0, 2);
+            pnlAcciones.Controls.Add(tlpAcciones);
+
+            Panel celdaAcciones = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Margin = new Padding(4, 2, 4, 2),
+                Padding = new Padding(4, 0, 0, 0)
+            };
+            celdaAcciones.Controls.Add(pnlAcciones);
+            tlp.Controls.Add(celdaAcciones, 9, 0);
 
             pnlTop.Controls.Add(tlp);
 
