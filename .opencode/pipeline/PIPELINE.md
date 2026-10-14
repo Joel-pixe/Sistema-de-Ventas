@@ -10,7 +10,9 @@
 - **Estado DOC-REQ-001:** ✅ **Fase 1 completada** — artefacto `01-requisitos.md` persistido (40 RF + 12 RNF). No hay cambio funcional propuesto; no avanza a fase 2 salvo que el usuario lo pida.
 - **Tarea nueva (este turno):** DOC-SRS-001 — SRS sencillo + PDF `requisitos.pdf` en raíz.
 - **Estado DOC-SRS-001:** ✅ **Fase 4+5 completadas y archivadas** — `Docs/Requisitos_SRS.md` (20 KB) + `requisitos.pdf` (10 pág, 101 KB), QA 4/4 PASS. Artefactos de pipeline archivados en `archivo/DOC-SRS-001/` para no pisar los `03/04/05-*.md` de LOGO-BN-001 (sigue en Fase 5 revisión §8 E2E pendiente).
-- **Fecha:** 2026-10-13
+- **Tarea nueva (este turno):** GIT-PUSH-001 — Subir todo el proyecto al repo `https://github.com/Joel-pixe/Sistema-de-Ventas.git`.
+- **Estado GIT-PUSH-001:** ✅ **completado** — remoto `origin` creado, commit `622dedc` (17 archivos), rama local renombrada a `main`, `git push -u origin main` OK (nueva rama `main -> main`). Se respeta `.gitignore`: `Sistema (SEMANA 11).zip` (118 MB) y `mydatabase.bak` quedan fuera del push.
+- **Fecha:** 2026-10-14
 
 ## Estado de fases
 
@@ -35,6 +37,7 @@
 - 2026-10-13 *(precedente, tarea cerrada)*: BUG-UI-001 — arreglar botones pegados de `FrmEstadisticas`; alcance solo `FrmEstadisticas.cs`.
 - 2026-10-13: **DOC-REQ-001** — El usuario pide listar todos los RF y RNF identificables del sistema ya realizado. Se resuelve por Fase 1 (analista, lectura estática, sin ejecución). Sin decisión de diseño ni cambio de código.
 - 2026-10-13: **DOC-SRS-001** — El usuario pide SRS sencillo + PDF `requisitos.pdf`. Plan manager: analista reescribe SRS legible → developer genera `Docs/Requisitos_SRS.md` + `requisitos.pdf` (fpdf2 2.8.9 + Arial, aprobado) → tester QA 4/4. Sin tocar `.cs`/`.csproj`/`.resx`/`App.config`. Estándares `03/04/05-*.md` siguen siendo de LOGO-BN-001; lo de DOC-SRS-001 se archiva en `archivo/DOC-SRS-001/`.
+- 2026-10-14: **GIT-PUSH-001** — El usuario pide subir todo el proyecto a `https://github.com/Joel-pixe/Sistema-de-Ventas.git`. Decisiones del usuario: rama destino = **`main`** (local renombrada con `branch -M`); **se excluyen** `*.zip`/`*.bak` según `.gitignore` vigente (el zip de 118 MB supera el límite de 100 MB de GitHub). Tarea operativa: se justifican fases 1-2 omitidas (sin requisitos ni arquitectura que diseñar); ejecución directa del manager (commit + push), sin artefacto `01/02/03/04/05` nuevo para no pisar los de LOGO-BN-001.
 
 ## Bloqueos
 
@@ -60,3 +63,5 @@
 | 2026-10-13 | manager → developer | `01-requisitos.md` → `Docs/Requisitos_SRS.md` + `requisitos.pdf` | DOC-SRS-001 Fase 4: MD 20 KB + PDF 10 pág 101 KB (fpdf2 + Arial), cero código tocado |
 | 2026-10-13 | manager → tester | `Docs/` + `requisitos.pdf` | DOC-SRS-001 Fase 5 QA documental (4 chequeos) |
 | 2026-10-13 | tester → manager | `archivo/DOC-SRS-001/05-qa.md` | DOC-SRS-001 **APROBADO 4/4**: MD 40/40+12/12, PDF 10 pág sin tofu, pie OK, cero código tocado |
+| 2026-10-14 | usuario → manager | — | GIT-PUSH-001: petición de subir todo el proyecto a `https://github.com/Joel-pixe/Sistema-de-Ventas.git` |
+| 2026-10-14 | manager | — | GIT-PUSH-001: `remote add origin` + `add -A` + commit `622dedc` (17 archivos, 1094+/39-) + `branch -M main` + `push -u origin main` OK; `PIPELINE.md` actualizado |
